@@ -17,6 +17,19 @@
     <h1>Signature Check</h1>
   </div>
   <div class="row">
+    <div class="form-group">
+      <label class="fontLabel" for="exampleInputURL">URL</label>
+      <input
+        type="url"
+        class="form-control "
+        id="exampleInputURL"
+        placeholder="Enter URL"
+        pattern="https?://.+"
+        required
+      />
+    </div>
+  </div>
+  <div class="row">
     <div class="col-md-6">
       <form class="md-form">
         <div class="file-field big">
@@ -54,7 +67,7 @@
         <div class="file-field big">
           <a class="btn-floating btn-lg pink lighten-1 mt-0 float-left">
             <i
-              class="fa fa-cloud-upload fa-spin-reverse fa-3x fa-fw"
+              class="fa fa-cloud-upload fa-spin fa-3x fa-fw"
               aria-hidden="true"
               id="secondFont"
             ></i>

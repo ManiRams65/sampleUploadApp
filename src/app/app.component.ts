@@ -14,20 +14,24 @@ export class AppComponent {
   constructor(private http: HttpClient) {}
   onFileOneSelected(eventOne) {
     this.selectedFileOne = eventOne.target.files;
-    const placeholderName = document.getElementById("placeOne");
+    const placeholderName = <HTMLInputElement>(
+      document.getElementById("placeOne")
+    );
     placeholderName.value = this.selectedFileOne[0].name;
     const fontOne = document.getElementById("firstFont");
     fontOne.className = "fa fa-cloud-upload";
-    const imageOne = document.getElementById("imageOne");
+    const imageOne = <HTMLImageElement>document.getElementById("imageOne");
     imageOne.src = URL.createObjectURL(this.selectedFileOne[0]);
   }
   onFileTwoSelected(event) {
     this.selectedFileTwo = event.target.files;
-    const placeholderName = document.getElementById("placeTwo");
+    const placeholderName = <HTMLInputElement>(
+      document.getElementById("placeTwo")
+    );
     placeholderName.value = this.selectedFileTwo[0].name;
-    const fontOne = document.getElementById("secondFont");
+    const fontOne = <HTMLElement>document.getElementById("secondFont");
     fontOne.className = "fa fa-cloud-upload";
-    const imageTwo = document.getElementById("imageTwo");
+    const imageTwo = <HTMLImageElement>document.getElementById("imageTwo");
     imageTwo.src = URL.createObjectURL(this.selectedFileTwo[0]);
   }
   onUpload() {
@@ -42,7 +46,10 @@ export class AppComponent {
       this.selectedFileTwo[0],
       this.selectedFileTwo[0].name
     );
-    this.response = this.http.post("", fd);
-    // console.log(fd);
+    const urlValue = <HTMLInputElement>(
+      document.getElementById("exampleInputURL")
+    );
+
+    this.response = this.http.post(urlValue.value, fd);
   }
 }
