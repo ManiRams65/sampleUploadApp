@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
+import * as $ from "jquery";
 
 @Component({
   selector: "app-root",

@@ -2,3 +2,18 @@
   font-size: large;
   color: black;
 }
+table {
+  border: 2px solid black;
+}
+.red {
+  background-color: red;
+  color: white;
+}
+.orange {
+  background-color: orangered;
+  color: white;
+}
+.green {
+  background-color: green;
+  color: white;
+}

@@ -103,7 +103,29 @@
       <button class="btn btn-primary " type="button" (click)="onUpload()">
         Compare
       </button>
-      <p>{{ response | async }}</p>
+    </div>
+    <div class="row text-center">
+      <table *ngIf="response | async">
+        <th>Result</th>
+        <th>Score</th>
+        <tr>
+          <!-- <td>{{ response.msg | async }}</td>
+          <td>{{ response.confidence_score | async }}</td> -->
+          <td>{{ response.msg | async }}</td>
+          <td
+            *ngIf="
+              response.confidence_score > 0.18 &&
+                response.confidence_score < 0.28 | async
+            "
+            class="orange"
+          >
+            {{ 100 - response.confidence_score * 100 | async }}
+          </td>
+          <td [ngClass]="response.confidence_score < 0.18 ? 'green' : 'red'">
+            {{ response.confidence_score | async }}
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
 </div>
